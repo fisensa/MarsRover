@@ -39,7 +39,17 @@ namespace MarsRover
             }
         }
 
-        //get x and y for all rovers
+        public void MoveRover(Rover rover, string commands)
+        {
+            foreach (char command in commands)
+            {
+                
+                if (VerifyRoverPosition(rover.X, rover.Y))
+                {
+                    rover.Move(command);
+                }
+            }
+        }
         public List<string> GetRoverPositions()
         {
             List<string> roverPositions = new List<string>();
