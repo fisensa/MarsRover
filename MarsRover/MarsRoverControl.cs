@@ -26,10 +26,11 @@ namespace MarsRover
         {
             Plateau = plateau;
         }
-
+        
+        //check if the position is available
         public bool VerifyRoverPosition(int x, int y)
         {
-            if (x > Plateau.X || y > Plateau.Y || x < 0 || y < 0 || Rovers.Any(r => r.X == x && r.Y == y))
+            if (x > Plateau.X || y > Plateau.Y || x <0 || y < 0 || Rovers.Any(r => r.X == x && r.Y == y))
             {
                 return false;
             }
@@ -39,17 +40,20 @@ namespace MarsRover
             }
         }
 
+        //move rover
         public void MoveRover(Rover rover, string commands)
         {
             foreach (char command in commands)
             {
-                
+                //move rover if the position is available
                 if (VerifyRoverPosition(rover.X, rover.Y))
                 {
                     rover.Move(command);
                 }
             }
         }
+        
+       //get all rovers positions
         public List<string> GetRoverPositions()
         {
             List<string> roverPositions = new List<string>();

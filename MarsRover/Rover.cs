@@ -12,14 +12,19 @@ namespace MarsRover
             _x,
             _y;
 
-        private char _direction;
+        private string _direction;
 
-        public Rover(int x, int y, char direction)
+        public Rover(int x, int y, string direction)
         {
             _x = x;
             _y = y;
             _direction = direction;
         }
+
+        public Rover()
+        {
+        }
+
         public int X
         {
             get { return _x; }
@@ -28,7 +33,7 @@ namespace MarsRover
         {
             get { return _y; }
         }
-        public char Direction
+        public string Direction
         {
             get { return _direction; }
         }
@@ -53,17 +58,17 @@ namespace MarsRover
         {
             switch (_direction)
             {
-                case 'N':
-                    _direction = 'W';
+                case "N":
+                    _direction = "W";
                     break;
-                case 'E':
-                    _direction = 'N';
+                case "E":
+                    _direction = "N";
                     break;
-                case 'S':
-                    _direction = 'E';
+                case "S":
+                    _direction = "E";
                     break;
-                case 'W':
-                    _direction = 'S';
+                case "W":
+                    _direction = "S";
                     break;
             }
         }
@@ -72,17 +77,17 @@ namespace MarsRover
         {
             switch (_direction)
             {
-                case 'N':
-                    _direction = 'E';
+                case "N":
+                    _direction = "E";
                     break;
-                case 'E':
-                    _direction = 'S';
+                case "E":
+                    _direction = "S";
                     break;
-                case 'S':
-                    _direction = 'W';
+                case "S":
+                    _direction = "W";
                     break;
-                case 'W':
-                    _direction = 'N';
+                case "W":
+                    _direction = "N";
                     break;
             }
         }
@@ -91,22 +96,30 @@ namespace MarsRover
         {
             switch (_direction)
             {
-                case 'N':
+                case "N":
                     _y++;
                     break;
-                case 'E':
+                case "E":
                     _x++;
                     break;
-                case 'S':
-                    _y--;
+                case "S":
+                    if (_y > 0)
+                    {
+                        _y--;
+                    }
+                   
                     break;
-                case 'W':
-                    _x--;
+                case "W":
+                    if (_x > 0)
+                    {
+                        _x--;
+                    }
+                    
                     break;
             }
         }
-        
-        
+
+
 
     }
 }
